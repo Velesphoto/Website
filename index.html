@@ -208,7 +208,7 @@ viaApi().then(function(o){return total(o)?o:viaManifest()}).then(function(o){if(
 var lbx=document.getElementById('lb');lbx.addEventListener('click',function(){lbx.hidden=true});document.addEventListener('keydown',function(e){if(e.key==='Escape')lbx.hidden=true});
 document.querySelectorAll('[data-pick]').forEach(function(a){a.addEventListener('click',function(){document.getElementById('svc').value=a.dataset.pick})});
 /* ---- CONTACT FORM: paste your free Web3Forms access key below (get it at web3forms.com) ---- */
-var ACCESS_KEY='';
+var ACCESS_KEY='6e092766-861f-41c2-a6c4-966328b0e706';
 var MAILTO='andrew@velesphoto.com';
 document.getElementById('f').addEventListener('submit',function(ev){ev.preventDefault();
 var form=ev.target,d=new FormData(form),msg=document.getElementById('msg'),btn=form.querySelector('button[type=submit]');
