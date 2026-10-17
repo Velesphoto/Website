@@ -186,7 +186,7 @@ setTimeout(finish,3600);sp.addEventListener('click',finish);sp.addEventListener(
 var tp=document.getElementById('top');function sc(){tp.classList.toggle('solid',window.scrollY>60)}window.addEventListener('scroll',sc);sc();
 /* ---- GALLERY: drop photos into gallery/real-estate, gallery/commercial, gallery/aerial ---- */
 /* Only needed if your site is on a custom domain: fill in your GitHub username and repo name. */
-var CFG={owner:'',repo:''};
+var CFG={owner:'Velesphoto',repo:'Website'};
 var CATS={'real-estate':['re','Real estate'],'commercial':['co','Commercial'],'aerial':['ae','Aerial']};
 var grid=document.getElementById('grid'),note=document.getElementById('gnote'),cur='all',IMG=/\.(jpe?g|png|webp|gif|avif)$/i;
 function applyFilter(){grid.querySelectorAll('.tile').forEach(function(e){e.style.display=(cur==='all'||e.dataset.c===cur)?'':'none'})}
