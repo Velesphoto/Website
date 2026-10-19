@@ -14,13 +14,33 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:'Jost','Helvetic
 h1,h2,h3{font-weight:400;margin:0}
 .wrap{max-width:1100px;margin:0 auto;padding:0 24px}
 .eyebrow{font-size:12px;letter-spacing:.5em;text-transform:uppercase;color:var(--acc)}
+.eyebrow.big{font-size:clamp(30px,5vw,46px);font-weight:300;margin:10px 0 14px}
+.promo{background:var(--amber);color:#111416;text-align:center;padding:28px 24px;margin:0 0 20px;border:1px solid var(--amber)}
+.promo h3{font-size:clamp(22px,4vw,32px);letter-spacing:.3em;padding-left:.3em;font-weight:500;margin:0 0 8px}
+.promo p{margin:0;font-size:17px;color:#111416}
+.price{display:flex;align-items:center;flex-wrap:wrap;gap:8px 12px}
+.price .was{font-size:26px;color:var(--mute);opacity:.75;text-decoration:line-through}
+.price .now{font-size:32px;background:var(--amber);color:#111416;padding:0 12px;line-height:1.4}
+.addons{margin-top:48px}
+.addons h3{font-size:clamp(22px,3.5vw,30px);color:var(--ink);margin:0 0 14px}
+.addons ul{list-style:none;padding:0;margin:0;color:var(--mute)}
+.addons li{padding:6px 0}
+.addons li:before{content:"- "}
+.team{display:flex;justify-content:space-between;gap:16px;margin-top:22px}
+.person{position:relative;outline:none}
+.person:last-child{text-align:right}
+.pname{display:inline-block;cursor:pointer;font-size:20px;letter-spacing:.25em;text-transform:uppercase;padding:6px 0;border-bottom:1px solid var(--acc)}
+.pbox{position:absolute;top:100%;left:0;margin-top:10px;width:min(260px,70vw);z-index:5;background:var(--bg);border:1px solid var(--line);padding:16px 18px;font-size:15px;line-height:1.6;color:var(--mute);text-align:left;opacity:0;visibility:hidden;transition:opacity .45s ease,visibility .45s}
+.person:last-child .pbox{left:auto;right:0}
+.person:hover .pbox,.person:focus-within .pbox,.person.open .pbox{opacity:1;visibility:visible}
+#gdesc{margin:0 0 22px;padding-bottom:14px;border-bottom:1px solid var(--line);color:var(--mute);font-size:15px}
 #splash{position:fixed;inset:0;z-index:50;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px;cursor:pointer;transition:opacity .8s,visibility .8s}
 #splash.off{opacity:0;visibility:hidden}
 #splash svg{width:min(170px,46vw);height:auto;overflow:visible}
 .vline{fill:none;stroke:var(--light);stroke-width:1.6;stroke-linejoin:round;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.7s .3s cubic-bezier(.6,.05,.3,1) forwards}.vfill{fill:var(--light);opacity:0;animation:fillin .6s 1.8s forwards}
-.word{color:var(--light);text-align:center;animation:fadeup 1s 2.3s both}
-.word b{display:block;font-weight:400;font-size:clamp(30px,7vw,44px);letter-spacing:.42em;padding-left:.42em}
-.word span{font-size:12px;letter-spacing:.6em;padding-left:.6em}
+.word{color:var(--light);text-align:center;line-height:1.1;font-size:clamp(30px,7vw,44px);animation:fadeup 1s 2.3s both}
+.word b{display:block;font-weight:400;font-size:1em;letter-spacing:.42em;padding-left:.42em}
+.word span{display:block;font-size:.4em;letter-spacing:.6em;padding-left:.6em;margin-top:.2em}
 @keyframes draw{to{stroke-dashoffset:0}}@keyframes fillin{to{opacity:1}}@keyframes fadeup{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 .hero{min-height:100svh;padding:110px 0 64px;background:var(--dark);color:var(--light);display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
 .herov{position:absolute;right:-4%;top:70px;width:min(62vw,560px);height:auto;opacity:0;pointer-events:none}body.ready .herov{opacity:.06}
@@ -92,33 +112,29 @@ footer{border-top:1px solid var(--line);padding:34px 0;color:var(--mute);font-si
 <svg class="herov" id="herov" viewBox="-4 -4 118 118" aria-hidden="true"><path d="M0 0 L34 0 L71.7 79.7 L102 0 L110 0 L68 110 L52 110 Z" fill="#f2f1ee"/></svg>
 <div class="wrap">
 <div class="eyebrow">Real Estate · Commercial · Aerial</div>
-<h1>Properties, seen from every angle.</h1>
-<p>Veles Photography makes listings and businesses look their best. Crisp interiors, confident commercial work and licensed drone aerials, delivered fast so your property is on the market looking sharp.</p>
+<h1>Make your property stand out.</h1>
+<p>At <b style="color:var(--acc);font-weight:500">Veles Photography</b>, we strive to make your listings and businesses look their best. Crisp interiors, breathtaking drone aerials, and quality services are all delivered fast so your property can be on the market looking sharp as can be.</p>
 <div class="btns"><a class="btn fill" href="#contact">Book a shoot</a><a class="btn" href="#explore">Explore</a></div>
 </div>
 <div class="cue">Scroll</div>
 </header>
 
 <section id="explore"><div class="wrap">
-<div class="eyebrow">Explore</div><h2>Where to next?</h2>
+<h2 class="eyebrow big">Explore</h2>
 <p class="lead">Browse our work, compare packages, meet the team or tell us about your next project.</p>
 <div class="opts">
-<a class="opt" href="#gallery"><small>01</small><h3>Gallery</h3><p>Real estate, commercial and aerial work.</p></a>
-<a class="opt" href="#pricing"><small>02</small><h3>Pricing</h3><p>Packages built for agents and businesses.</p></a>
-<a class="opt" href="#about"><small>03</small><h3>About us</h3><p>Who we are and how we work.</p></a>
-<a class="opt" href="#contact"><small>04</small><h3>Contact</h3><p>Request a quote or book a date.</p></a>
-</div>
-<div class="stats">
-<div class="stat"><b>Real estate</b><span>Interiors, exteriors and twilight listing photos.</span></div>
-<div class="stat"><b>Commercial</b><span>Offices, retail, hospitality and architecture.</span></div>
-<div class="stat"><b>Aerial</b><span>Drone stills and video that show the whole property.</span></div>
+<a class="opt" href="#gallery"><h3>Gallery</h3><p>Real estate, commercial and aerial work.</p></a>
+<a class="opt" href="#pricing"><h3>Pricing</h3><p>Packages built for agents and businesses.</p></a>
+<a class="opt" href="#about"><h3>About us</h3><p>Get to know the team.</p></a>
+<a class="opt" href="#contact"><h3>Contact</h3><p>Request a quote and book a date.</p></a>
 </div>
 </div></section>
 
 <section id="gallery" style="background:var(--card)"><div class="wrap">
-<div class="eyebrow">Gallery</div><h2>Selected work</h2>
+<h2 class="eyebrow big">Gallery</h2>
 <div class="filters" id="filters">
 <button aria-pressed="true" data-f="all">All</button><button aria-pressed="false" data-f="re">Real estate</button><button aria-pressed="false" data-f="co">Commercial</button><button aria-pressed="false" data-f="ae">Aerial</button></div>
+<p id="gdesc" role="status">Select a category above to filter the works.</p>
 <div class="grid" id="grid">
 <div class="tile re tall" data-c="re"><span>Real estate · Living room</span></div>
 <div class="tile ae" data-c="ae"><span>Aerial · Neighborhood</span></div>
@@ -133,25 +149,31 @@ footer{border-top:1px solid var(--line);padding:34px 0;color:var(--mute);font-si
 </div></section>
 
 <section id="pricing"><div class="wrap">
-<div class="eyebrow">Pricing</div><h2>Packages</h2>
+<h2 class="eyebrow big">Pricing</h2>
 <p class="lead">Simple packages with fast turnaround. Commercial and large properties are quoted per project.</p>
+<div class="promo" id="promo"><h3>PORTFOLIO PRICING</h3><p>For a limited time, packages are discounted. This deal will end in:<br><b id="pp-time"></b></p></div>
 <div class="plans">
-<div class="plan"><h3>Essential</h3><div class="price">$[PRICE]</div><ul><li>Interior and exterior photos</li><li>[NUMBER] edited images</li><li>[TURNAROUND] delivery</li></ul><a class="btn" href="#contact" data-pick="Essential">Choose</a></div>
-<div class="plan hot"><h3>Signature</h3><div class="price">$[PRICE]</div><ul><li>Everything in Essential</li><li>Drone aerial photos</li><li>[NUMBER] edited images</li></ul><a class="btn fill" href="#contact" data-pick="Signature">Choose</a></div>
-<div class="plan"><h3>Complete</h3><div class="price">$[PRICE]</div><ul><li>Everything in Signature</li><li>Twilight photos</li><li>Aerial video walkthrough</li></ul><a class="btn" href="#contact" data-pick="Complete">Choose</a></div>
+<div class="plan"><h3>Essential</h3><div class="price"><s class="was">$200</s><span class="now">$150</span></div><ul><li>Interior and exterior photos</li><li>30-35 edited images</li><li>24-48 hour delivery</li></ul><a class="btn" href="#contact" data-pick="Essential">Choose</a></div>
+<div class="plan hot"><h3>Signature</h3><div class="price"><s class="was">$350</s><span class="now">$250</span></div><ul><li>Everything in Essential</li><li>5-10 drone aerial photos</li><li>10-second edited drone video</li></ul><a class="btn fill" href="#contact" data-pick="Signature">Choose</a></div>
+<div class="plan"><h3>Complete</h3><div class="price"><s class="was">$450</s><span class="now">$325</span></div><ul><li>Everything in Signature</li><li>All HDR photos</li><li>60-second edited video walkthrough</li></ul><a class="btn" href="#contact" data-pick="Complete">Choose</a></div>
 <div class="plan"><h3>Commercial</h3><div class="price" style="font-size:30px">Custom quote</div><ul><li>Offices, retail, hospitality</li><li>Architecture and aerial</li><li>Licensing as needed</li></ul><a class="btn" href="#contact" data-pick="Commercial">Request quote</a></div>
 </div>
+<div class="addons"><h3>Individual Pricing and Add-Ons</h3><ul><li>Edited aerial photography only: $150</li><li>Drone videography only: $100</li><li>Locations further than 20 miles from 77082: $25 for every additional 10 miles</li></ul></div>
 </div></section>
 
 <section id="about" style="background:var(--card)"><div class="wrap about">
-<div><div class="eyebrow">About us</div><h2>Photography that sells space.</h2>
-<p>Veles Photography is a real estate, commercial and aerial photography company based in the Houston area. We work with agents, brokerages, builders and businesses who need images that stop the scroll and fill the calendar.</p>
-<p>Every shoot is planned around the property: the right light, the right angles and drone flights that show what ground level cannot. [ADD YOUR STORY, EXPERIENCE AND DRONE LICENSING HERE]</p></div>
+<div><h2 class="eyebrow big">About us</h2>
+<p>Veles Photography is a father-son duo doing real estate, commercial and aerial photography based in the Houston area. We also travel to areas in Sugarland, Pearland, Woodlands, and Cypress. We work with agents, brokerages, builders and businesses who need images that stop the scroll and fill the calendar.</p>
+<p>Hover or tap over the names below to get to know us more!</p>
+<div class="team">
+<div class="person" tabindex="0"><span class="pname">Andrew Veles</span><div class="pbox">Placeholder text about this team member. Add a short bio, experience and what you love about shooting properties.</div></div>
+<div class="person" tabindex="0"><span class="pname">Dario Veles</span><div class="pbox">Placeholder text about this team member. Add a short bio, experience and what you love about shooting properties.</div></div>
+</div></div>
 <div class="mark" aria-hidden="true"><svg viewBox="0 0 110 110"><polygon points="0,0 34,0 71.7,79.7 102,0 110,0 68,110 52,110" fill="#f2f1ee"/></svg></div>
 </div></section>
 
 <section id="contact"><div class="wrap">
-<div class="eyebrow">Contact</div><h2>Let's shoot your next property.</h2>
+<h2 class="eyebrow big">Contact</h2>
 <p class="lead">Tell us what you need and we'll reply with availability and a quote.</p>
 <form id="f">
 <div class="row"><label>Name<input name="n" required autocomplete="name"></label><label>Email<input type="email" name="e" required autocomplete="email"></label></div>
@@ -165,7 +187,7 @@ footer{border-top:1px solid var(--line);padding:34px 0;color:var(--mute);font-si
 
 <div id="lb" hidden><img alt=""></div>
 
-<footer>VELES PHOTOGRAPHY · HOUSTON, TX · [EMAIL] · [PHONE]</footer>
+<footer>VELES PHOTOGRAPHY · HOUSTON, TX · <a href="mailto:andrew@velesphoto.com" style="color:inherit">andrew@velesphoto.com</a> · <a href="tel:+18326288168" style="color:inherit">832-628-8168</a></footer>
 
 <script>
 (function(){
@@ -183,6 +205,12 @@ v.style.opacity=.06;
 w.style.transform='translate('+(q.left+q.width/2-wr.left-wr.width/2)+'px,'+(q.top+q.height/2-wr.top-wr.height/2)+'px) scale('+(q.width/wr.width)+')';
 setTimeout(function(){document.body.classList.add('ready');sp.style.display='none';document.body.style.overflow=''},1400)}
 setTimeout(finish,3600);sp.addEventListener('click',finish);sp.addEventListener('keydown',finish);
+var END=Date.UTC(2026,10,18,6,0,0);/* start of Nov 18, 2026, Central Time */
+function tick(){var ms=END-Date.now(),pr=document.getElementById('promo');if(ms<=0){pr.style.display='none';return}
+var h=Math.floor(ms/36e5),d=Math.floor(h/24);h=h%24;
+document.getElementById('pp-time').textContent=d+(d===1?' day':' days')+' and '+h+(h===1?' hour':' hours')}
+tick();setInterval(tick,60000);
+document.querySelectorAll('.person').forEach(function(p){p.addEventListener('click',function(){var o=p.classList.contains('open');document.querySelectorAll('.person').forEach(function(q){q.classList.remove('open')});if(!o)p.classList.add('open')})});
 var tp=document.getElementById('top');function sc(){tp.classList.toggle('solid',window.scrollY>60)}window.addEventListener('scroll',sc);sc();
 /* ---- GALLERY: drop photos into gallery/real-estate, gallery/commercial, gallery/aerial ---- */
 /* Only needed if your site is on a custom domain: fill in your GitHub username and repo name. */
@@ -190,8 +218,9 @@ var CFG={owner:'Velesphoto',repo:'Website'};
 var CATS={'real-estate':['re','Real estate'],'commercial':['co','Commercial'],'aerial':['ae','Aerial']};
 var grid=document.getElementById('grid'),note=document.getElementById('gnote'),cur='all',IMG=/\.(jpe?g|png|webp|gif|avif)$/i;
 function applyFilter(){grid.querySelectorAll('.tile').forEach(function(e){e.style.display=(cur==='all'||e.dataset.c===cur)?'':'none'})}
+var DESC={all:'Select a category above to filter the works.',re:'Interiors, exteriors and twilight listing photos.',co:'Offices, retail, hospitality and architecture.',ae:'Drone stills and video that show the whole property.'};
 var fb=document.querySelectorAll('#filters button');
-fb.forEach(function(x){x.addEventListener('click',function(){fb.forEach(function(y){y.setAttribute('aria-pressed',y===x)});cur=x.dataset.f;applyFilter()})});
+fb.forEach(function(x){x.addEventListener('click',function(){fb.forEach(function(y){y.setAttribute('aria-pressed',y===x)});cur=x.dataset.f;applyFilter();document.getElementById('gdesc').textContent=DESC[cur]})});
 function pretty(n){return n.replace(/\.[^.]+$/,'').replace(/^\d+[-_ ]*/,'').replace(/[-_]+/g,' ')}
 function repo(){if(CFG.owner&&CFG.repo)return CFG;var m=location.hostname.match(/^(.+)\.github\.io$/);if(!m)return null;var seg=location.pathname.split('/')[1];return{owner:m[1],repo:(seg&&seg.indexOf('.')<0)?seg:location.hostname}}
 function viaApi(){var r=repo();if(!r)return Promise.resolve({});var out={};
